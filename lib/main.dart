@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kitmans_gallery/menu.dart';
+import 'package:kitmans_gallery/screens/menu.dart';
 
 void main() {
   runApp(const MyApp());
