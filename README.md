@@ -139,7 +139,9 @@ Untuk menjaga struktur halaman yang konsisten di seluruh aplikasi, digunakan kom
   appBar: AppBar(title: const Text("The Kitman’s Gallery")),
   drawer: const LeftDrawer(),
   body: ...
-)```
+)
+```
+
 
 Penjelasan:
 
