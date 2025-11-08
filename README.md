@@ -105,7 +105,7 @@ Pemahaman tentang perbedaan `StatelessWidget`, `StatefulWidget`, dan penggunaan 
 
 # Tugas 8
 ### 1. Perbedaan Navigator.push() dan Navigator.pushReplacement()
-- Navigator.push()
+- `Navigator.push()`
 
   Menambahkan halaman baru di atas halaman sebelumnya pada stack navigasi.
   Halaman lama tetap tersimpan dan bisa diakses kembali dengan tombol Back.
@@ -114,11 +114,12 @@ Pemahaman tentang perbedaan `StatelessWidget`, `StatefulWidget`, dan penggunaan 
   ```Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => const AddProductFormPage()),
-  );```
+  );
+  ```
 
   Cocok digunakan ketika pengguna masih perlu kembali ke halaman sebelumnya, misalnya dari halaman utama ke halaman form tambah produk.
 
-- Navigator.pushReplacement()
+- `Navigator.pushReplacement()`
   Mengganti halaman saat ini dengan halaman baru (halaman lama dihapus dari stack).
   Tombol Back tidak akan mengembalikan ke halaman lama.
 
@@ -127,9 +128,10 @@ Pemahaman tentang perbedaan `StatelessWidget`, `StatefulWidget`, dan penggunaan 
   ```Navigator.pushReplacement(
     context,
     MaterialPageRoute(builder: (context) => MyHomePage()),
-  );```
+  );
+  ```
 
-  Cocok digunakan untuk navigasi permanen seperti berpindah antar halaman lewat Drawer, agar halaman tidak menumpuk berulang.
+  Cocok digunakan untuk navigasi permanen seperti berpindah antar halaman lewat `Drawer`, agar halaman tidak menumpuk berulang.
 
 ### 2. Hierarchy Widget: Scaffold, AppBar, dan Drawer
 
@@ -145,9 +147,9 @@ Untuk menjaga struktur halaman yang konsisten di seluruh aplikasi, digunakan kom
 
 Penjelasan:
 
-- Scaffold → menjadi kerangka utama setiap halaman, menyediakan slot untuk AppBar, Drawer, dan Body.
-- AppBar → menampilkan judul dan elemen navigasi di bagian atas aplikasi secara konsisten.
-- Drawer → berisi menu navigasi untuk berpindah antar halaman seperti “Halaman Utama” dan “Tambah Produk”.
+- `Scaffold` → menjadi kerangka utama setiap halaman, menyediakan slot untuk `AppBar`, `Drawer`, dan `Body`.
+- `AppBar` → menampilkan judul dan elemen navigasi di bagian atas aplikasi secara konsisten.
+- `Drawer` → berisi menu navigasi untuk berpindah antar halaman seperti “Halaman Utama” dan “Tambah Produk”.
 
 Dengan struktur ini, setiap halaman memiliki tampilan dan navigasi yang seragam, membuat aplikasi terlihat lebih profesional dan mudah digunakan.
 
@@ -155,7 +157,7 @@ Dengan struktur ini, setiap halaman memiliki tampilan dan navigasi yang seragam,
 
 Ketiga widget ini membantu menampilkan elemen-elemen form secara rapi dan tetap mudah diakses di layar kecil.
 
-- Padding
+- `Padding`
 
   Menambahkan jarak antar elemen agar form tidak menempel ke tepi layar.
   Contoh:
@@ -163,21 +165,23 @@ Ketiga widget ini membantu menampilkan elemen-elemen form secara rapi dan tetap 
   ```Padding(
     padding: const EdgeInsets.all(16.0),
     child: TextFormField(...),
-  )```
+  );
+  ```
 
-- SingleChildScrollView
+- `SingleChildScrollView`
 
   Memungkinkan halaman digulir vertikal, sehingga seluruh form tetap terlihat walau layar kecil.
   Contoh:
 
   ```SingleChildScrollView(
     child: Column(children: [...]),
-  )```
+  );
+  ```
 
 - ListView
 
   Alternatif untuk menampilkan banyak elemen yang otomatis dapat digulir.
-  Namun pada form ini digunakan SingleChildScrollView agar struktur Column lebih fleksibel.
+  Namun pada form ini digunakan `SingleChildScrollView` agar struktur Column lebih fleksibel.
 
   Kelebihan utama:
   Menjaga tata letak form tetap responsif, rapi, dan mudah diisi di berbagai ukuran layar.
@@ -190,20 +194,21 @@ Agar aplikasi memiliki identitas visual konsisten, warna tema diatur di file mai
   colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
       .copyWith(secondary: Colors.blueAccent[400]),
   useMaterial3: true,
-),```
+),
+```
 
 Penjelasan:
 
-primarySwatch: Colors.blue → menjadi warna utama (brand color) toko.
-secondary: Colors.blueAccent[400] → digunakan untuk elemen aksen seperti tombol atau ikon aktif.
-useMaterial3: true → memastikan tampilan modern sesuai standar Material Design terbaru.
+`primarySwatch: Colors.blue` → menjadi warna utama (brand color) toko.
+`secondary: Colors.blueAccent[400]` → digunakan untuk elemen aksen seperti tombol atau ikon aktif.
+`useMaterial3: true` → memastikan tampilan modern sesuai standar Material Design terbaru.
 
 Warna biru dipilih untuk memberi kesan profesional, bersih, dan tepercaya, sesuai citra toko olahraga.
 
 ### Kesimpulan
 
 Dalam pembuatan aplikasi, saya mempelajari:
-Perbedaan dan penggunaan tepat antara Navigator.push() dan Navigator.pushReplacement().
-Cara menjaga struktur halaman konsisten dengan Scaffold, AppBar, dan Drawer.
-Penerapan layout widget seperti Padding dan SingleChildScrollView agar form nyaman digunakan.
+Perbedaan dan penggunaan tepat antara `Navigator.push()` dan `Navigator.pushReplacement()`.
+Cara menjaga struktur halaman konsisten dengan `Scaffold`, `AppBar`, dan `Drawer`.
+Penerapan layout widget seperti `Padding` dan `SingleChildScrollView` agar form nyaman digunakan.
 Penyesuaian tema warna agar aplikasi memiliki identitas visual yang kuat dan seragam.
