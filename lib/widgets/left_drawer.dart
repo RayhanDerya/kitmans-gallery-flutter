@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:kitmans_gallery/screens/menu.dart';
 import 'package:kitmans_gallery/screens/productlist_form.dart';
+import 'package:kitmans_gallery/screens/productlist.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:kitmans_gallery/screens/login.dart';
+
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Drawer(
       child: ListView(
         children: [
@@ -57,6 +63,45 @@ class LeftDrawer extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const ProductFormPage()),
               );
             },
+          ),
+          ListTile(
+              leading: const Icon(Icons.store),
+              title: const Text('Product List'),
+              onTap: () {
+                  // Route to news list page
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const ProductListPage()),
+                  );
+              },
+          ),
+          ListTile(
+              leading: const Icon(Icons.store),
+              title: const Text('Logout'),
+              onTap: () async {
+                  // Route to news list page
+                  final response = await request.logout(
+                    "https://rayhan-derya-kitmansgallery.pbp.cs.ui.ac.id/auth/logout/");
+                String message = response["message"];
+                if (context.mounted) {
+                    if (response['status']) {
+                        String uname = response["username"];
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text("$message See you again, $uname."),
+                        ));
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => const LoginPage()),
+                        );
+                    } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                                content: Text(message),
+                            ),
+                        );
+                    }
+                }
+              },
           ),
         ],
       ),

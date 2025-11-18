@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kitmans_gallery/widgets/left_drawer.dart';
 import 'package:kitmans_gallery/screens/productlist_form.dart';
+import 'package:kitmans_gallery/screens/productlist.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
@@ -125,6 +128,8 @@ class ItemCard extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => const ProductFormPage()),
             );
+          } else if (item.name == "All Products") {
+            Navigator.push(context,MaterialPageRoute(builder: (context) => const ProductListPage()));
           }
         },
         child: Container(
