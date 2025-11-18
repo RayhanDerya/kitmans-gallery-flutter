@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kitmans_gallery/screens/menu.dart';
 import 'package:kitmans_gallery/screens/productlist_form.dart';
 import 'package:kitmans_gallery/screens/productlist.dart';
+import 'package:kitmans_gallery/screens/myproductlist.dart'; // Tambah: Import MyProductListPage
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:kitmans_gallery/screens/login.dart';
@@ -68,10 +69,22 @@ class LeftDrawer extends StatelessWidget {
               leading: const Icon(Icons.store),
               title: const Text('Product List'),
               onTap: () {
-                  // Route to news list page
+                  // Route to All Product List page
                   Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => const ProductListPage()),
+                  );
+              },
+          ),
+          // Tambah: ListTile untuk My Product List
+          ListTile(
+              leading: const Icon(Icons.shopping_bag),
+              title: const Text('My Product List'),
+              onTap: () {
+                  // Route to My Product List page
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const MyProductListPage()),
                   );
               },
           ),
