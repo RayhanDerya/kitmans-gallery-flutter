@@ -76,7 +76,7 @@ class LeftDrawer extends StatelessWidget {
               },
           ),
           ListTile(
-              leading: const Icon(Icons.store),
+              leading: const Icon(Icons.exit_to_app),
               title: const Text('Logout'),
               onTap: () async {
                   // Route to news list page

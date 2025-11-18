@@ -4,9 +4,10 @@ import 'package:kitmans_gallery/screens/productlist_form.dart';
 import 'package:kitmans_gallery/screens/productlist.dart';
 import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:kitmans_gallery/screens/myproductlist.dart';
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key});
+  MyHomePage({super.key,});
 
   final String nama = "Rayhan Derya Maheswara";
   final String npm = "2406403381";
@@ -130,6 +131,11 @@ class ItemCard extends StatelessWidget {
             );
           } else if (item.name == "All Products") {
             Navigator.push(context,MaterialPageRoute(builder: (context) => const ProductListPage()));
+          } else if (item.name == "My Products") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MyProductListPage()),
+            );
           }
         },
         child: Container(
