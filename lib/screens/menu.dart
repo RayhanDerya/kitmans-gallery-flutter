@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kitmans_gallery/widgets/left_drawer.dart';
 import 'package:kitmans_gallery/screens/productlist_form.dart';
 import 'package:kitmans_gallery/screens/productlist.dart';
-import 'package:provider/provider.dart';
-import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:kitmans_gallery/screens/myproductlist.dart';
 
 class MyHomePage extends StatelessWidget {
